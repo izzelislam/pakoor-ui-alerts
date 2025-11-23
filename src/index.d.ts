@@ -1,0 +1,134 @@
+/* ============================================================================
+   BFKR Alerts — Optimized PRO Typings
+   Compatible: React, Vue, Svelte, UMD, ESM
+   ============================================================================ */
+
+/* ======================
+      Toast Types
+   ====================== */
+export type ToastType =
+  | "success"
+  | "error"
+  | "warning"
+  | "info"
+  | "primary"
+  | "dark"
+  | "custom";
+
+export type ToastPosition =
+  | "top-left"
+  | "top-center"
+  | "top-right"
+  | "bottom-left"
+  | "bottom-center"
+  | "bottom-right";
+
+export type ToastAnimation =
+  | "slide"
+  | "fade"
+  | "bounce"
+  | "zoom"
+  | "ease-in"
+  | "ease-out";
+
+/* ======================
+      Toast Options
+   ====================== */
+export interface ToastOptions {
+  title?: string;
+  icon?: string;
+  duration?: number;
+  animation?: ToastAnimation;
+  position?: ToastPosition;
+  customStyle?: Partial<CSSStyleDeclaration>;
+}
+
+/* ======================
+      Dialog Options
+   ====================== */
+export interface DialogButtonStyles {
+  background?: string;
+  color?: string;
+  border?: string;
+  borderRadius?: string;
+  padding?: string;
+  boxShadow?: string;
+}
+
+export interface DialogOptions {
+  type?: ToastType;
+  title?: string;
+  icon?: string;
+  width?: string;
+  style?: Partial<CSSStyleDeclaration>;
+  buttonStyle?: {
+    ok?: DialogButtonStyles;
+    cancel?: DialogButtonStyles;
+  };
+  onConfirm?: (yes: boolean) => void;
+  onSubmit?: (val: string | null) => void;
+}
+
+/* ======================
+      Global Config
+   ====================== */
+export interface GlobalColors {
+  success?: string;
+  error?: string;
+  warning?: string;
+  info?: string;
+  primary?: string;
+  dark?: string;
+  custom?: string;
+}
+
+export interface GlobalDialogColors {
+  ok?: string;
+  cancel?: string;
+  background?: string;
+  text?: string;
+}
+
+/* ======================
+      API Interfaces
+   ====================== */
+export interface ToastAPI {
+  show(message: string, type?: ToastType, options?: ToastOptions): void;
+  setPosition(position: ToastPosition): void;
+  setTheme(theme: string): void;
+}
+
+export interface DialogAPI {
+  alert(message: string, options?: DialogOptions): void;
+  confirm(message: string, options?: DialogOptions): void;
+  prompt(message: string, options?: DialogOptions): void;
+  setTheme(theme: string): void;
+}
+
+export interface ConfigAPI {
+  setColors(colors: GlobalColors): void;
+  setDialogColors(colors: GlobalDialogColors): void;
+}
+
+/* ======================
+      Main Export Shape
+   ====================== */
+export interface BFKRExport {
+  Toast: ToastAPI;
+  Dialog: DialogAPI;
+  config: ConfigAPI;
+}
+
+/* ======================
+      GLOBAL UMD SUPPORT
+   ====================== */
+declare const BFKR: BFKRExport;
+
+/* ======================
+      ESM EXPORTS
+   ====================== */
+export default BFKR;
+
+export const Toast: ToastAPI;
+export const Dialog: DialogAPI;
+export const config: ConfigAPI;

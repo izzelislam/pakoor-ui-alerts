@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>BFKR Alerts & Dialog Demo - FINAL FIX</title>
+
+  <link rel="stylesheet" href="../../dist/style.css">
+  <script src="../../dist/alerts.umd.min.js" defer></script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 40px;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.9);
+      color: #e5e7eb;
+      font-size: 0.9rem;
+      transition: 0.15s ease;
+    }
+    button:hover {
+      background: rgba(30,64,175,0.85);
+      border-color: rgba(129,140,248,0.9);
+    }
+    .section {
+      margin-bottom: 26px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed rgba(75,85,99,0.7);
+    }
+    h1 { margin-bottom: 4px; }
+    small { opacity: .7; }
+  </style>
+</head>
+
+<body>
+
+  <h1>BFKR Alerts & Dialog Demo</h1>
+  <small>Toast + SweetAlert-style Dialog in one lightweight package.</small>
+
+  <!-- =================== TOAST =================== -->
+  <div class="section">
+    <h3>Toast Examples</h3>
+    <button id="btn-success">Success</button>
+    <button id="btn-error">Error</button>
+    <button id="btn-warning">Warning</button>
+    <button id="btn-info">Info</button>
+    <button id="btn-primary">Primary</button>
+    <button id="btn-dark">Dark</button>
+
+    <button id="btn-custom-style">Custom Style</button>
+  </div>
+
+  <!-- =================== DIALOG =================== -->
+  <div class="section">
+    <h3>Dialog Examples (SweetAlert-style)</h3>
+    <button id="dlg-alert">Alert</button>
+    <button id="dlg-success">Success</button>
+    <button id="dlg-error">Error</button>
+    <button id="dlg-warning">Warning</button>
+    <button id="dlg-info">Info</button>
+
+    <button id="dlg-confirm">Confirm</button>
+    <button id="dlg-prompt">Prompt</button>
+
+    <button id="dlg-custom">Custom Styled Dialog</button>
+    <button id="dlg-big-brutal">Brutalism + Big Width</button>
+  </div>
+
+  <!-- =================== POSITION =================== -->
+  <div class="section">
+    <h3>Toast Position</h3>
+    <button data-pos="top-left">Top Left</button>
+    <button data-pos="top-center">Top Center</button>
+    <button data-pos="top-right">Top Right</button>
+
+    <button data-pos="bottom-left">Bottom Left</button>
+    <button data-pos="bottom-center">Bottom Center</button>
+    <button data-pos="bottom-right">Bottom Right</button>
+  </div>
+
+  <!-- =================== ANIMATION =================== -->
+  <div class="section">
+    <h3>Toast Animation</h3>
+    <button data-anim="slide">Slide</button>
+    <button data-anim="fade">Fade</button>
+    <button data-anim="bounce">Bounce</button>
+    <button data-anim="zoom">Zoom</button>
+    <button data-anim="ease-in">Ease In</button>
+    <button data-anim="ease-out">Ease Out</button>
+  </div>
+
+  <!-- =================== THEMES =================== -->
+  <div class="section">
+    <h3>Theme Switch (Toast + Dialog)</h3>
+    <button data-theme="default">Default</button>
+    <button data-theme="brutalism">Brutalism</button>
+    <button data-theme="modern">Modern</button>
+    <button data-theme="glass">Glass</button>
+    <button data-theme="minimal">Minimal</button>
+    <button data-theme="neumorphism">Neumorphism</button>
+    <button data-theme="modernDark">Modern Dark</button>
+  </div>
+
+  <!-- =================== GLOBAL COLOR OVERRIDE =================== -->
+  <div class="section">
+    <h3>Override Global Color Palette</h3>
+    <button id="override-color">Apply Custom Palette</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* FIX: UMD EXPORT */
+      const T = BFKR.default.Toast;
+      const D = BFKR.default.Dialog;
+
+      let currentAnim = "slide";
+
+      /* ====== TOAST ====== */
+      document.getElementById("btn-success").onclick = () =>
+        T.show("Data saved successfully.", "success", {
+          icon: "✔️", title: "Success", animation: currentAnim
+        });
+
+      document.getElementById("btn-error").onclick = () =>
+        T.show("Something went wrong.", "error", {
+          icon: "❌", title: "Error", animation: currentAnim
+        });
+
+      document.getElementById("btn-warning").onclick = () =>
+        T.show("Please double check your data.", "warning", {
+          icon: "⚠️", title: "Warning", animation: currentAnim
+        });
+
+      document.getElementById("btn-info").onclick = () =>
+        T.show("Here is some information.", "info", {
+          icon: "ℹ️", title: "Info", animation: currentAnim
+        });
+
+      document.getElementById("btn-primary").onclick = () =>
+        T.show("Primary action completed.", "primary", {
+          icon: "⭐", title: "Primary", animation: currentAnim
+        });
+
+      document.getElementById("btn-dark").onclick = () =>
+        T.show("Dark mode notification.", "dark", {
+          icon: "🌑", title: "Dark Mode", animation: currentAnim
+        });
+
+      document.getElementById("btn-custom-style").onclick = () =>
+        T.show("This toast uses fully custom style.", "custom", {
+          title: "Custom Styled",
+          icon: "🎨",
+          animation: currentAnim,
+          customStyle: {
+            background: "#020617",
+            color: "#22c55e",
+            border: "1px solid #22c55e",
+            fontWeight: "bold",
+            borderRadius: "14px",
+            padding: "18px",
+            boxShadow: "0 0 22px rgba(34,197,94,0.6)"
+          }
+        });
+
+      /* ====== DIALOG: BASIC TYPES ====== */
+      document.getElementById("dlg-alert").onclick = () =>
+        D.alert("This is a general alert.");
+
+      document.getElementById("dlg-success").onclick = () =>
+        D.alert("Your changes have been saved!", {
+          type: "success",
+          title: "Success",
+          icon: "✔️"
+        });
+
+      document.getElementById("dlg-error").onclick = () =>
+        D.alert("Something failed on the server.", {
+          type: "error",
+          title: "Error",
+          icon: "❌"
+        });
+
+      document.getElementById("dlg-warning").onclick = () =>
+        D.alert("Please review the form again.", {
+          type: "warning",
+          title: "Warning",
+          icon: "⚠️"
+        });
+
+      document.getElementById("dlg-info").onclick = () =>
+        D.alert("We sent a verification link to your email.", {
+          type: "info",
+          title: "Information",
+          icon: "ℹ️"
+        });
+
+      /* ====== DIALOG: CONFIRM ====== */
+      document.getElementById("dlg-confirm").onclick = () =>
+        D.confirm("Are you sure you want to delete this item?", {
+          type: "warning",
+          title: "Delete Item?",
+          icon: "⚠️",
+          onConfirm: yes => {
+            if (yes) T.show("Item deleted.", "success");
+            else T.show("Cancelled.", "info");
+          }
+        });
+
+      /* ====== DIALOG: PROMPT ====== */
+      document.getElementById("dlg-prompt").onclick = () =>
+        D.prompt("What is your name?", {
+          type: "info",
+          title: "Introduce Yourself",
+          icon: "✏️",
+          onSubmit: val => {
+            if (val) T.show(`Nice to meet you, ${val}!`, "success");
+          }
+        });
+
+      /* ====== DIALOG CUSTOM ====== */
+      document.getElementById("dlg-custom").onclick = () =>
+        D.alert("This dialog uses a fully custom style!", {
+          type: "custom",
+          title: "Custom Dialog",
+          icon: "🎨",
+          width: "460px",
+          style: {
+            background: "#020617",
+            color: "#22c55e",
+            border: "1px solid #22c55e",
+            boxShadow: "0 0 30px rgba(34,197,94,0.6)",
+            borderRadius: "16px"
+          },
+          buttonStyle: {
+            ok: {
+              background: "#22c55e",
+              color: "#020617",
+              borderRadius: "12px",
+              boxShadow: "0 0 15px rgba(34,197,94,0.6)"
+            }
+          }
+        });
+
+      /* ====== DIALOG BRUTALISM + WIDTH ====== */
+      document.getElementById("dlg-big-brutal").onclick = () => {
+        T.setTheme("brutalism");
+        D.setTheme("brutalism");
+
+        D.confirm("Use Brutalism theme for your UI?", {
+          type: "warning",
+          title: "Brutalism Mode",
+          width: "520px",
+          style: {
+            background: "#ffffff",
+          },
+          buttonStyle: {
+            ok: {
+              background: "#000000",
+              color: "#ffffff",
+              borderRadius: "0"
+            },
+            cancel: {
+              background: "#f97316",
+              color: "#000000",
+              borderRadius: "0"
+            }
+          },
+          onConfirm: yes => {
+            if (yes) T.show("Brutalism accepted!", "success", { icon: "🧱" });
+            else T.show("Brutalism cancelled.", "info", { icon: "❌" });
+          }
+        });
+      };
+
+      /* ====== POSITION ====== */
+      document.querySelectorAll("[data-pos]").forEach(btn => {
+        btn.onclick = () => {
+          T.setPosition(btn.dataset.pos);
+          T.show("Position updated!", "info", { icon: "📍" });
+        };
+      });
+
+      /* ====== ANIMATION ====== */
+      document.querySelectorAll("[data-anim]").forEach(btn => {
+        btn.onclick = () => {
+          currentAnim = btn.dataset.anim;
+          T.show("Animation updated!", "info", { icon: "🎬", animation: currentAnim });
+        };
+      });
+
+      /* ====== THEME ====== */
+      document.querySelectorAll("[data-theme]").forEach(btn => {
+        btn.onclick = () => {
+          const theme = btn.dataset.theme;
+          T.setTheme(theme);
+          D.setTheme(theme);
+          T.show(`Theme: ${theme}`, "info", { icon: "🎨" });
+        };
+      });
+
+      /* ====== GLOBAL PALETTE OVERRIDE ====== */
+      document.getElementById("override-color").onclick = () => {
+        BFKR.default.config.setColors({
+          success: "#22c55e",
+          error: "#fb7185",
+          warning: "#facc15",
+          info: "#38bdf8",
+          primary: "#a855f7",
+          dark: "#020617",
+          custom: "#e11d48",
+        });
+
+        T.show("Global color palette updated!", "primary", { icon: "🎨" });
+      };
+
+    });
+  </script>
+
+</body>
+</html>

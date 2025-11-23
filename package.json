@@ -1,0 +1,82 @@
+{
+  "name": "@pakoor/ui-alerts",
+  "version": "1.0.0",
+  "description": "Universal toast & dialog alert library for Browser, React, and Vue with themes, custom styling, and SweetAlert-style dialogs.",
+  "author": "Bang FKR",
+  "license": "MIT",
+
+  "type": "module",
+
+  "main": "dist/alerts.umd.js",
+  "module": "dist/alerts.esm.js",
+  "types": "dist/index.d.ts",
+
+  "style": "dist/style.min.css",
+  "unpkg": "dist/alerts.umd.min.js",
+  "jsdelivr": "dist/alerts.umd.min.js",
+
+  "exports": {
+    ".": {
+      "import": "./dist/alerts.esm.min.js",
+      "require": "./dist/alerts.umd.min.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./react": {
+      "import": "./dist/react/index.js",
+      "types": "./dist/react/index.d.ts"
+    },
+    "./vue": {
+      "import": "./dist/vue/index.js",
+      "types": "./dist/vue/index.d.ts"
+    },
+    "./style.css": "./dist/style.css",
+    "./style.min.css": "./dist/style.min.css"
+  },
+
+  "scripts": {
+    "build": "rollup -c rollup.config.mjs && npm run build:types",
+    "build:types": "dts-bundle-generator --project tsconfig.json --out-file dist/index.d.ts --umd-module-name BFKR -- src/index.d.ts"
+  },
+
+  "files": [
+    "dist",
+    "README.md"
+  ],
+
+  "keywords": [
+    "toast",
+    "dialog",
+    "alert",
+    "ui",
+    "notification",
+    "sweetalert",
+    "modal",
+    "browser",
+    "react",
+    "vue",
+    "javascript",
+    "ui-library"
+  ],
+
+  "sideEffects": [
+    "dist/style.css",
+    "dist/style.min.css"
+  ],
+
+  "engines": {
+    "node": ">=16.0.0"
+  },
+
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.1.0",
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "autoprefixer": "^10.4.22",
+    "dts-bundle-generator": "^9.5.1",
+    "postcss": "^8.5.6",
+    "rollup": "^4.53.3",
+    "rollup-plugin-postcss": "^4.0.2"
+  }
+}
