@@ -4,17 +4,13 @@
   "description": "Universal toast & dialog alert library for Browser, React, and Vue with themes, custom styling, and SweetAlert-style dialogs.",
   "author": "Bang FKR",
   "license": "MIT",
-
   "type": "module",
-
   "main": "dist/alerts.umd.js",
   "module": "dist/alerts.esm.js",
   "types": "dist/index.d.ts",
-
   "style": "dist/style.min.css",
   "unpkg": "dist/alerts.umd.min.js",
   "jsdelivr": "dist/alerts.umd.min.js",
-
   "exports": {
     ".": {
       "import": "./dist/alerts.esm.min.js",
@@ -32,17 +28,17 @@
     "./style.css": "./dist/style.css",
     "./style.min.css": "./dist/style.min.css"
   },
-
   "scripts": {
     "build": "rollup -c rollup.config.mjs && npm run build:types",
-    "build:types": "dts-bundle-generator --project tsconfig.json --out-file dist/index.d.ts --umd-module-name BFKR -- src/index.d.ts"
+    "build:types": "dts-bundle-generator --project tsconfig.json --out-file dist/index.d.ts --umd-module-name BFKR -- src/index.d.ts",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
-
   "files": [
     "dist",
     "README.md"
   ],
-
   "keywords": [
     "toast",
     "dialog",
@@ -57,16 +53,13 @@
     "javascript",
     "ui-library"
   ],
-
   "sideEffects": [
     "dist/style.css",
     "dist/style.min.css"
   ],
-
   "engines": {
     "node": ">=16.0.0"
   },
-
   "devDependencies": {
     "@rollup/plugin-babel": "^6.1.0",
     "@rollup/plugin-commonjs": "^29.0.0",
@@ -77,6 +70,7 @@
     "dts-bundle-generator": "^9.5.1",
     "postcss": "^8.5.6",
     "rollup": "^4.53.3",
-    "rollup-plugin-postcss": "^4.0.2"
+    "rollup-plugin-postcss": "^4.0.2",
+    "vitepress": "^1.6.4"
   }
 }

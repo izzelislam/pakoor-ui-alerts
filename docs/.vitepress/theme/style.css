@@ -1,0 +1,454 @@
+/* VitePress Custom Theme for UI Alerts Documentation */
+
+:root {
+  --vp-c-brand: #6366f1;
+  --vp-c-brand-light: #818cf8;
+  --vp-c-brand-lighter: #a5b4fc;
+  --vp-c-brand-dark: #4f46e5;
+  --vp-c-brand-darker: #4338ca;
+
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f9fafb;
+  --vp-c-bg-elv: #ffffff;
+
+  --vp-c-text-1: #1f2937;
+  --vp-c-text-2: #374151;
+  --vp-c-text-3: #6b7280;
+  --vp-c-text-4: #9ca3af;
+
+  --vp-c-border: #e5e7eb;
+  --vp-c-divider: #e5e7eb;
+
+  --vp-c-bg-soft: #f9fafb;
+  --vp-c-bg-mute: #f3f4f6;
+
+  /* Custom accent colors for UI Alerts */
+  --ui-alerts-primary: #6366f1;
+  --ui-alerts-success: #10b981;
+  --ui-alerts-warning: #f59e0b;
+  --ui-alerts-error: #ef4444;
+  --ui-alerts-info: #3b82f6;
+}
+
+.dark {
+  --vp-c-bg: #111827;
+  --vp-c-bg-alt: #1f2937;
+  --vp-c-bg-elv: #1f2937;
+
+  --vp-c-text-1: #f9fafb;
+  --vp-c-text-2: #e5e7eb;
+  --vp-c-text-3: #d1d5db;
+  --vp-c-text-4: #9ca3af;
+
+  --vp-c-border: #374151;
+  --vp-c-divider: #374151;
+
+  --vp-c-bg-soft: #1f2937;
+  --vp-c-bg-mute: #374151;
+}
+
+/* Hero Section Customization */
+.VPHero .name {
+  background: linear-gradient(135deg, var(--ui-alerts-primary), var(--ui-alerts-success));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.VPHero .text {
+  color: var(--vp-c-text-1);
+  font-size: 1.2rem;
+  font-weight: 500;
+  max-width: 600px;
+}
+
+.VPHero .tagline {
+  color: var(--vp-c-text-2);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Custom Buttons */
+.VPHero .action .VPButton {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 16px;
+}
+
+.VPHero .action .VPButton.brand {
+  background: linear-gradient(135deg, var(--ui-alerts-primary), var(--ui-alerts-success));
+  color: white;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+.VPHero .action .VPButton.brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.VPHero .action .VPButton.alt {
+  background: var(--vp-c-bg-elv);
+  color: var(--ui-alerts-primary);
+  border: 2px solid var(--ui-alerts-primary);
+}
+
+.VPHero .action .VPButton.alt:hover {
+  background: var(--ui-alerts-primary);
+  color: white;
+}
+
+/* Features Grid */
+.VPFeatures {
+  margin-top: 48px;
+}
+
+.VPFeature {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--vp-c-bg-elv);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--ui-alerts-primary);
+}
+
+.VPFeature .icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.VPFeature .title {
+  color: var(--vp-c-text-1);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.VPFeature .details {
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+}
+
+/* Custom Code Blocks */
+.vp-code-group .tabs {
+  border-bottom: 2px solid var(--vp-c-border);
+  margin-bottom: 0;
+}
+
+.vp-code-group .tabs .tab {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-border);
+  border-bottom: none;
+  margin-bottom: -1px;
+  padding: 8px 16px;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.2s ease;
+}
+
+.vp-code-group .tabs .tab.active {
+  background: var(--vp-c-bg-elv);
+  border-color: var(--ui-alerts-primary);
+  color: var(--ui-alerts-primary);
+  font-weight: 600;
+}
+
+/* Custom Blockquotes */
+blockquote {
+  border-left: 4px solid var(--ui-alerts-primary);
+  background: var(--vp-c-bg-soft);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 0 8px 8px 0;
+  position: relative;
+}
+
+blockquote::before {
+  content: "💡";
+  position: absolute;
+  left: -12px;
+  top: 16px;
+  background: var(--ui-alerts-primary);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+/* Custom Tables */
+table {
+  border-collapse: collapse;
+  margin: 24px 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--vp-c-border);
+}
+
+th {
+  background: var(--ui-alerts-primary);
+  color: white;
+  font-weight: 600;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+/* Custom Lists */
+ul, ol {
+  padding-left: 24px;
+  margin: 16px 0;
+}
+
+li {
+  margin: 8px 0;
+  line-height: 1.6;
+}
+
+/* Custom Alert Boxes for Documentation */
+.custom-tip {
+  border-left: 4px solid var(--ui-alerts-success);
+  background: rgba(16, 185, 129, 0.1);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+.custom-warning {
+  border-left: 4px solid var(--ui-alerts-warning);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+.custom-danger {
+  border-left: 4px solid var(--ui-alerts-error);
+  background: rgba(239, 68, 68, 0.1);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+.custom-info {
+  border-left: 4px solid var(--ui-alerts-info);
+  background: rgba(59, 130, 246, 0.1);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+/* Custom Inline Code */
+code:not(.vp-code) {
+  background: var(--ui-alerts-primary);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+/* Custom Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin: 0 4px;
+}
+
+.badge-success {
+  background: var(--ui-alerts-success);
+  color: white;
+}
+
+.badge-warning {
+  background: var(--ui-alerts-warning);
+  color: white;
+}
+
+.badge-error {
+  background: var(--ui-alerts-error);
+  color: white;
+}
+
+.badge-info {
+  background: var(--ui-alerts-info);
+  color: white;
+}
+
+.badge-primary {
+  background: var(--ui-alerts-primary);
+  color: white;
+}
+
+/* Custom Grid for Examples */
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.example-card {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 12px;
+  padding: 20px;
+  background: var(--vp-c-bg-elv);
+}
+
+.example-card h4 {
+  color: var(--ui-alerts-primary);
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+/* Custom Buttons for Examples */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  margin: 4px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.btn-success {
+  background: var(--ui-alerts-success);
+  color: white;
+}
+
+.btn-error {
+  background: var(--ui-alerts-error);
+  color: white;
+}
+
+.btn-warning {
+  background: var(--ui-alerts-warning);
+  color: white;
+}
+
+.btn-info {
+  background: var(--ui-alerts-info);
+  color: white;
+}
+
+.btn-primary {
+  background: var(--ui-alerts-primary);
+  color: white;
+}
+
+.btn-dark {
+  background: #1f2937;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .VPHero .action {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .VPHero .action .VPButton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .example-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .VPFeatures {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ui-alerts-primary);
+}
+
+/* Custom Focus Styles */
+button:focus,
+a:focus {
+  outline: 2px solid var(--ui-alerts-primary);
+  outline-offset: 2px;
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

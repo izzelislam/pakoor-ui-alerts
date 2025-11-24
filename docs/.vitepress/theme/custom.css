@@ -1,0 +1,166 @@
+/* ---------- GENERAL ---------- */
+:root {
+  --bfkr-radius: 14px;
+  --bfkr-gray: #1f2937;
+  --bfkr-gray-light: #f3f4f6;
+  --bfkr-border: rgba(0,0,0,0.1);
+  --bfkr-border-dark: rgba(255,255,255,0.08);
+  --vp-sidebar-width: 240px;
+}
+
+.dark {
+  --bfkr-gray: #0f172a;
+  --bfkr-gray-light: #1e293b;
+}
+
+/* Typography */
+body {
+  font-feature-settings: "liga", "kern";
+  letter-spacing: -0.01em;
+}
+
+/* ---------- NAVBAR ---------- */
+.VPNavBar {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.8) !important;
+  border-bottom: 1px solid var(--bfkr-border);
+}
+
+.dark .VPNavBar {
+  background: rgba(15,23,42,0.7) !important;
+  border-color: var(--bfkr-border-dark);
+}
+
+/* ---------- SIDEBAR ---------- */
+/* ---------- SIDEBAR (FIXED) ---------- */
+
+/* sidebar container transparan, tidak blok warna */
+.VPSidebar {
+  background: transparent !important;
+  backdrop-filter: blur(8px);
+  padding-top: 20px;
+}
+
+/* item basic style */
+.VPSidebarItem .item {
+  border-radius: 10px;
+  padding: 6px 10px;
+  transition: all .18s ease;
+}
+
+/* ACTIVE item (minimal, elegan) */
+.VPSidebarItem.is-active > .item {
+  background: rgba(0,0,0,0.08);
+  color: black !important;
+  font-weight: 600;
+}
+
+.dark .VPSidebarItem.is-active > .item {
+  background: rgba(255,255,255,0.08);
+  color: white !important;
+}
+
+/* hover (halus, tidak blok fullscreen) */
+.VPSidebarItem .item:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+.dark .VPSidebarItem .item:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* hilangkan border / blok lain dari VitePress bawaan */
+.VPSidebar .group {
+  border: none !important;
+}
+
+/* Hover states */
+.VPSidebarItem .item:hover {
+  background: var(--bfkr-gray-light);
+}
+
+.dark .VPSidebarItem .item:hover {
+  background: var(--bfkr-gray);
+}
+
+/* ---------- CONTENT AREA ---------- */
+.VPDoc {
+  padding-top: 30px;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3 {
+  font-weight: 700;
+}
+
+/* ---------- CARDS ---------- */
+.bfkr-card {
+  border-radius: var(--bfkr-radius);
+  background: white;
+  border: 1px solid var(--bfkr-border);
+  transition: .25s ease;
+}
+
+.bfkr-card:hover {
+  transform: translateY(-6px);
+  border-color: black;
+}
+
+.dark .bfkr-card {
+  background: var(--bfkr-gray);
+  border-color: var(--bfkr-border-dark);
+}
+
+.dark .bfkr-card:hover {
+  border-color: white;
+}
+
+/* ---------- HOME PAGE ---------- */
+.home-hero {
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.home-hero h1 {
+  font-size: 3.4rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.home-hero .tagline {
+  font-size: 1.2rem;
+  opacity: .75;
+}
+
+.home-features {
+  margin-top: 40px;
+}
+
+.home-features .box {
+  border: 1px solid var(--bfkr-border);
+  border-radius: var(--bfkr-radius);
+  transition: .25s ease;
+}
+
+.home-features .box:hover {
+  border-color: black;
+  transform: translateY(-6px);
+}
+
+.dark .home-features .box {
+  border-color: var(--bfkr-border-dark);
+}
+
+.dark .home-features .box:hover {
+  border-color: white;
+}
+
+/* ---------- FOOTER ---------- */
+.VPFooter {
+  border-top: 1px solid var(--bfkr-border);
+}
+
+.dark .VPFooter {
+  border-color: var(--bfkr-border-dark);
+}
